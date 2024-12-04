@@ -9,6 +9,6 @@ public class StartMenu : Monobehavior
 
     if(Input.GetKeyDown(KeyCode.Escape))
     {
-        
-
+        GameManager.Instance.SetGameState(GameState.Paused)
+    }
 }
