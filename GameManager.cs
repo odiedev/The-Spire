@@ -1,19 +1,20 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : monobehavior
+public class GameManager : MonoBehaviour
 
 {
-	// Singleton Instance
-    public static GameManager Instance { get; private set; } 
-	//get allows a value to be read from outside the class. private set restricts the ability to modify
+    // Singleton Instance
+    public static GameManager Instance { get; private set; }
+    //get allows a value to be read from outside the class. private set restricts the ability to modify
 
     // Game States
     public enum GameState { MainMenu, Playing, Paused, GameOver }
     public GameState CurrentState { get; private set; }
 
 
-	private void Awake()
+    private void Awake()
     {
         // Ensure only one instance exists
         if (Instance != null && Instance != this)
@@ -26,13 +27,13 @@ public class GameManager : monobehavior
     }
 
 
-	public Void Start()
+    public void Start()
     {
-	SetGameState(GameState.MainMenu);
+        SetGameState(GameState.MainMenu);
     }
 
 
- 	// Change Game State
+    // Change Game State
     public void SetGameState(GameState newState)
     {
         CurrentState = newState;
@@ -58,8 +59,8 @@ public class GameManager : monobehavior
         }
     }
 
-    public Void QuitGame()
+    public void QuitGame()
     {
-	GameManager.Instance
+        GameManager.Instance
     }
 }
